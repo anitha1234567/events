@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class extends Component {
+  state = {//state is used to assign a value or create a value
+    user: "react",
+    userpassword: ""
+  }
+  buttonClick = () => {
+    alert()
+  }
+  //abc is an attribute to handlechange function
+  handleChange = (abc) => {
+    //target is the keyword to all fields i.e, input ,p tags ....
+    //console.log(abc.target.value)
+    this.setState({
+      user: abc.target.value
+    })
+  }
+  passwordChange = (a) => {
+    this.setState({
+      userpassword: a.target.value
+    })
+  }
+  render() {
+    return (
+      <div>
+        {this.state.user} <br />
+        {this.state.userpassword}<br />
+        <input onChange={this.handleChange} placeholder="enter your name" />
+        <input onChange={this.passwordChange} placeholder="enter your pasword" />
+        <button onClick={this.buttonClick}>submitt</button>
+
+      </div >
+    )
+  }
 }
-
-export default App;
